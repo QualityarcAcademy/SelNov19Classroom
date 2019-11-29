@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebDriverTest {
-	RemoteWebDriver driver;
+	public RemoteWebDriver driver;
 
 	
 	public void openBrowser(String URL) {
