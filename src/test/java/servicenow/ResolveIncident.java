@@ -23,6 +23,7 @@ public class ResolveIncident extends WebDriverTest {
 
 		//Launch the application
 		openBrowser("https://dev92430.service-now.com/");
+		String incidentNum = readPropertyFile("InciNum");
 
 		//Switch to frame
 		driver.switchTo().frame("gsft_main");
@@ -54,7 +55,7 @@ public class ResolveIncident extends WebDriverTest {
 		driver.findElement(By.xpath("(//*[text()='Incidents'])[2]")).click();
 		driver.switchTo().frame("gsft_main");
 		driver.findElement(By.xpath("//span[@id='incident_hide_search']//input[@placeholder='Search']"))
-		.sendKeys("INC0010027", Keys.ENTER);
+		.sendKeys(incidentNum, Keys.ENTER);
 
 		driver.close();
 

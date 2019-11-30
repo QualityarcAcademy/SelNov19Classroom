@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="36851" started-at="2019-11-28T19:18:24Z" finished-at="2019-11-28T19:19:01Z">
+  <suite name="Default suite" duration-ms="55555" started-at="2019-11-30T00:11:52Z" finished-at="2019-11-30T00:12:48Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="36851" started-at="2019-11-28T19:18:24Z" finished-at="2019-11-28T19:19:01Z">
-      <class name="servicenow.CreateIncident">
-        <test-method status="PASS" signature="createNewIncident()[pri:0, instance:servicenow.CreateIncident@42dafa95]" name="createNewIncident" duration-ms="36824" started-at="2019-11-28T19:18:24Z" finished-at="2019-11-28T19:19:01Z">
+    <test name="Default test" duration-ms="55555" started-at="2019-11-30T00:11:52Z" finished-at="2019-11-30T00:12:48Z">
+      <class name="servicenow.ResolveIncident">
+        <test-method status="PASS" signature="resolveIncident()[pri:0, instance:servicenow.ResolveIncident@402a079c]" name="resolveIncident" duration-ms="55528" started-at="2019-11-30T00:11:52Z" finished-at="2019-11-30T00:12:48Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createNewIncident -->
-      </class> <!-- servicenow.CreateIncident -->
+        </test-method> <!-- resolveIncident -->
+      </class> <!-- servicenow.ResolveIncident -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -58,27 +58,31 @@ public class CreateIncident extends WebDriverTest{
 		//Fill in the form 
 		String incidentNumReInitial = driver.findElement(By.id("incident.number")).getAttribute("value");
 		System.out.println("The incident number is "+incidentNumReInitial);
-		Thread.sleep(1000);
+		writeToPropertyFile(incidentNumReInitial);
+		Thread.sleep(2000);
 		driver.findElement(By.id("lookup.incident.caller_id")).click();
+		Thread.sleep(2000);
 
 		//Switch to child window
-		Set<String> winHandles = driver.getWindowHandles();
-		System.out.println("Total window opened "+winHandles.size());
+		//Set<String> winHandles = driver.getWindowHandles();
+		//System.out.println("Total window opened "+winHandles.size());
 
-		for (String string : winHandles) {
-			System.out.println(string);
-
-		}
+//		for (String string : winHandles) {
+//			System.out.println(string);
+//
+//		}
 		//Switch to Child window
 
 		//int count =0;
-		for (String winHandle : winHandles) {
-			if(!winHandle.equals(parentWindow)) {
-				driver.switchTo().window(winHandle);
-				System.out.println("Window switched");
-			}
-			//count=count+1;
-		}
+//		for (String winHandle : winHandles) {
+//			if(!winHandle.equals(parentWindow)) {
+//				driver.switchTo().window(winHandle);
+//				System.out.println("Window switched");
+//			}
+//			//count=count+1;
+//		}
+		
+		switchToChildWindow(parentWindow);
 
 		driver.findElement(By.xpath("//tbody[@class='list2_body']/*[1]/td/a")).click();
 
@@ -88,8 +92,9 @@ public class CreateIncident extends WebDriverTest{
 
 		//Select category
 		WebElement categoryDropdown = driver.findElement(By.id("incident.category"));
-		dropdownEle= new Select(categoryDropdown);
-		dropdownEle.selectByVisibleText("Software");
+		selectByVisibleTextOption(categoryDropdown, "Software");
+//		dropdownEle= new Select(categoryDropdown);
+//		dropdownEle.selectByVisibleText("Software");
 
 		//Select sub category 
 		WebElement subcategoryDropdown = driver.findElement(By.id("incident.subcategory"));
@@ -101,24 +106,25 @@ public class CreateIncident extends WebDriverTest{
 		driver.findElement(By.id("lookup.incident.business_service")).click();
 
 		//Switch to the child window and search for 'Outlook'
-		Set<String> winHandles1 = driver.getWindowHandles();
-		System.out.println("Total window opened "+winHandles1.size());
-
-		for (String string : winHandles1) {
-			System.out.println(string);
-
-		}
-		//Switch to Child window
-
-		//int count =0;
-		for (String winHandle : winHandles1) {
-			if(!winHandle.equals(parentWindow)) {
-				driver.switchTo().window(winHandle);
-				System.out.println("Window switched");
-			}
-			//count=count+1;
-		}
+//		Set<String> winHandles1 = driver.getWindowHandles();
+//		System.out.println("Total window opened "+winHandles1.size());
+//
+//		for (String string : winHandles1) {
+//			System.out.println(string);
+//
+//		}
+//		//Switch to Child window
+//
+//		//int count =0;
+//		for (String winHandle : winHandles1) {
+//			if(!winHandle.equals(parentWindow)) {
+//				driver.switchTo().window(winHandle);
+//				System.out.println("Window switched");
+//			}
+//			//count=count+1;
+//		}
 		
+		switchToChildWindow(parentWindow);
 	
 		driver.findElement(By.xpath("//input[@placeholder='Search' and @class='form-control']"))
 		.sendKeys("Outlook", Keys.ENTER);
