@@ -9,18 +9,20 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.nov19.WebDriverTest;
+import support.ReadExcel;
 
 
 
 public class CreateIncident extends WebDriverTest{
 	Select dropdownEle;
 
-	@Test
-	public void createNewIncident() throws InterruptedException {
+	@Test(dataProvider = "testData")
+	public void createNewIncident(String username, String password, String Keyword) throws InterruptedException {
 		/*
 		 * This test case creates a new incident
 		 * @ Data - User credential 
 		 */	
+		//String[][] testData = ReadExcel.readExcelData("testData");
 
 		//Launch application
 		openBrowser("https://dev92430.service-now.com/");
@@ -30,9 +32,9 @@ public class CreateIncident extends WebDriverTest{
 
 		//Login
 		driver.findElement(By.id("user_name")).clear();
-		driver.findElement(By.id("user_name")).sendKeys("admin");
+		driver.findElement(By.id("user_name")).sendKeys(username);
 		driver.findElement(By.id("user_password")).clear();
-		driver.findElement(By.id("user_password")).sendKeys("Qarc@440");
+		driver.findElement(By.id("user_password")).sendKeys(password);
 		driver.findElement(By.id("sysverb_login")).click();
 
 		//Verify login is successful
@@ -45,7 +47,7 @@ public class CreateIncident extends WebDriverTest{
 
 		//Search the keyword 'incident'
 		driver.findElement(By.id("filter")).click();
-		driver.findElement(By.id("filter")).sendKeys("Incident");
+		driver.findElement(By.id("filter")).sendKeys(Keyword);
 		driver.findElement(By.linkText("Create New")).click();
 
 		//Switch to frame

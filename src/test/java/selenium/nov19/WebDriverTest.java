@@ -14,9 +14,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import support.ReadExcel;
 
 public class WebDriverTest {
 	public RemoteWebDriver driver;
@@ -113,6 +115,13 @@ public class WebDriverTest {
 		}
 		
 		return incNum;
+		
+	}
+	
+	@DataProvider(name = "testData")
+	public String[][] excelData () {
+		
+		return ReadExcel.readExcelData("testData");
 		
 	}
 	
